@@ -10,9 +10,12 @@ var app = express();
 app.use(function(req, res, next) {
     res.setHeader("Acces-Controll-Allow-Origin","*");
     res.setHeader(
-        "Acces-Controll-Allow-Origin"
-    )
-})
+        "Acces-Controll-Allow-Methods",
+        "Origin, X_Requested-With, Content-Type, Accept"
+    );
+    res.setHeader("Acces-Controll-Allow-Methods","POST");
+    next();
+});
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
