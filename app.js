@@ -7,7 +7,12 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
+app.use(function(req, res, next) {
+    res.setHeader("Acces-Controll-Allow-Origin","*");
+    res.setHeader(
+        "Acces-Controll-Allow-Origin"
+    )
+})
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
